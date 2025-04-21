@@ -21,9 +21,9 @@ CREATE TABLE parent(
 
 /*  Ross Barth */
 CREATE TABLE driver (                               
-    driver_id INT NOT NULL,
-    user_id INT NOT NULL, 
-	  criminal_record VARCHAR(255), 
+    driver_id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL , 
+	criminal_record VARCHAR(255), 
     max_passengers VARCHAR(255),
     available_seats VARCHAR(255),
 
@@ -61,7 +61,6 @@ CREATE TABLE chatmessage(
     FOREIGN KEY(message_id) REFERENCES message(message_id)
 );
 
-/*Mahlubandile Habe*/
 CREATE TABLE school (
     school_id INT NOT NULL AUTO_INCREMENT,
     school_name VARCHAR(255),
@@ -94,8 +93,9 @@ CREATE TABLE driverschool (
     driver_id INT NOT NULL,
     school_id INT NOT NULL,
 
-    PRIMARY KEY (driver_id),
-    FOREIGN KEY (school_id) REFERENCES school(school_id)
+    PRIMARY KEY (driver_id,school_id),
+    FOREIGN KEY (school_id) REFERENCES school(school_id),
+    FOREIGN KEY (driver_id) REFERENCES driver(driver_id)
 );
 
 /*Bonga Velem*/
@@ -112,4 +112,13 @@ CREATE TABLE vehicle (
     vehicle_type VARCHAR(255) NOT NULL,
     
     PRIMARY KEY (vehicle_id)
+);
+
+CREATE TABLE drivervehicle (
+	driver_id INT NOT NULL,
+    vehicle_id INT NOT NULL,
+    
+    PRIMARY KEY (driver_id,vehicle_id),
+    FOREIGN KEY (driver_id) REFERENCES driver(driver_id),
+    FOREIGN KEY (vehicle_id) REFERENCES vehicle(vehicle_id)
 );
