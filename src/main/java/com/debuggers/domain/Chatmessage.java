@@ -18,28 +18,49 @@ public class Chatmessage {
     @JoinColumn(name = "message_id", nullable = false)
     private com.debuggers.domain.Message message;
 
-    public ChatmessageId getId() {
-        return id;
+    public Chatmessage() {}
+
+    private Chatmessage(Builder builder){
+        this.id = builder.id;
+        this.chat = builder.chat;
+        this.message = builder.message;
     }
 
-    public void setId(ChatmessageId id) {
-        this.id = id;
+    public ChatmessageId getId() {
+        return id;
     }
 
     public Chat getChat() {
         return chat;
     }
 
-    public void setChat(Chat chat) {
-        this.chat = chat;
-    }
-
     public com.debuggers.domain.Message getMessage() {
         return message;
     }
 
-    public void setMessage(com.debuggers.domain.Message message) {
-        this.message = message;
+    public static class Builder{
+        private ChatmessageId id;
+        private Chat chat;
+        private Message message;
+
+        public Builder setId(ChatmessageId id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder setChat(Chat chat) {
+            this.chat = chat;
+            return this;
+        }
+
+        public Builder setMessage(Message message) {
+            this.message = message;
+            return this;
+        }
+
+        public Chatmessage build(){
+            return new Chatmessage(this);
+        }
     }
 
 }
