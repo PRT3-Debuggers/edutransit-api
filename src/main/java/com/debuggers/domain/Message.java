@@ -22,36 +22,59 @@ public class Message {
     @Column(name = "content")
     private String content;
 
+    public Message() {
+    }
+    private Message(Builder builder) {
+        this.id = builder.id;
+        this.user = builder.user;
+        this.dateSent = builder.dateSent;
+        this.content = builder.content;
+    }
+
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public com.debuggers.domain.User getUser() {
+    public User getUser() {
         return user;
-    }
-
-    public void setUser(com.debuggers.domain.User user) {
-        this.user = user;
     }
 
     public Instant getDateSent() {
         return dateSent;
     }
 
-    public void setDateSent(Instant dateSent) {
-        this.dateSent = dateSent;
-    }
-
     public String getContent() {
         return content;
     }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+    public static class Builder{
+        private Long id;
+        private com.debuggers.domain.User user;
+        private Instant dateSent;
+        private String content;
 
+        public Builder setId(Long id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder setUser(User user) {
+            this.user = user;
+            return this;
+        }
+
+        public Builder setDateSent(Instant dateSent) {
+            this.dateSent = dateSent;
+            return this;
+        }
+
+        public Builder setContent(String content) {
+            this.content = content;
+            return this;
+        }
+
+        public Message builder(){
+            return new  Message(this);
+        }
+    }
 }
