@@ -22,35 +22,60 @@ public class Chat {
     @Column(name = "date_created", nullable = false)
     private Instant dateCreated;
 
+    public Chat() {
+    }
+
+    private Chat(Builder builder) {
+        this.id = builder.id;
+        this.parent = builder.parent;
+        this.driver = builder.driver;
+        this.dateCreated = builder.dateCreated;
+    }
+
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public com.debuggers.domain.Parent getParent() {
+    public Parent getParent() {
         return parent;
     }
 
-    public void setParent(com.debuggers.domain.Parent parent) {
-        this.parent = parent;
-    }
-
-    public com.debuggers.domain.Driver getDriver() {
+    public Driver getDriver() {
         return driver;
-    }
-
-    public void setDriver(com.debuggers.domain.Driver driver) {
-        this.driver = driver;
     }
 
     public Instant getDateCreated() {
         return dateCreated;
     }
 
-    public void setDateCreated(Instant dateCreated) {
-        this.dateCreated = dateCreated;
+    public static class Builder{
+        private Long id;
+        private Parent parent;
+        private Driver driver;
+        private Instant dateCreated;
+
+        public Builder setId(Long id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder setParent(Parent parent) {
+            this.parent = parent;
+            return this;
+        }
+
+        public Builder setDriver(Driver driver) {
+            this.driver = driver;
+            return this;
+        }
+
+        public Builder setDateCreated(Instant dateCreated) {
+            this.dateCreated = dateCreated;
+            return this;
+        }
+
+        public Chat build(){
+            return new Chat(this);
+        }
     }
 }
