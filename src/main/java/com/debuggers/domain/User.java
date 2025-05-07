@@ -1,7 +1,9 @@
 package com.debuggers.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
+//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 @Table(name = "user", schema = "prt3debuggers")
 public class User {
