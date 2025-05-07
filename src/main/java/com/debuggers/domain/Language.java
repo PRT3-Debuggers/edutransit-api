@@ -42,4 +42,53 @@ public class Language {
         this.code = code;
     }
 
+    public Language() {
+    }
+
+    public Language(Builder builder) {
+        this.id = builder.id;
+        this.languageName = builder.languageName;
+        this.code = builder.code;
+    }
+
+    @Override
+    public String toString() {
+        return "Language{" +
+                "id=" + id +
+                ", languageName='" + languageName + '\'' +
+                ", code='" + code + '\'' +
+                '}';
+    }
+
+    public static class Builder {
+        private Long id;
+        private String languageName;
+        private String code;
+
+        public Builder setId(Long id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder setLanguageName(String languageName) {
+            this.languageName = languageName;
+            return this;
+        }
+
+        public Builder setCode(String code) {
+            this.code = code;
+            return this;
+        }
+
+        public Builder copy(Language language) {
+            this.id = language.getId();
+            this.languageName = language.getLanguageName();
+            this.code = language.getCode();
+            return this;
+        }
+
+        public Language build() {
+            return new Language(this);
+        }
+    }
 }
