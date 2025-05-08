@@ -16,30 +16,52 @@ public class Drivervehicle {
     @MapsId("vehicleId")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "vehicle_id", nullable = false)
-    private com.debuggers.domain.Vehicle vehicle;
+    private Vehicle vehicle;
 
     public DrivervehicleId getId() {
         return id;
-    }
-
-    public void setId(DrivervehicleId id) {
-        this.id = id;
     }
 
     public Driver getDriver() {
         return driver;
     }
 
-    public void setDriver(Driver driver) {
-        this.driver = driver;
-    }
-
-    public com.debuggers.domain.Vehicle getVehicle() {
+    public Vehicle getVehicle() {
         return vehicle;
     }
 
-    public void setVehicle(com.debuggers.domain.Vehicle vehicle) {
-        this.vehicle = vehicle;
+    public Drivervehicle(){
+
     }
 
+    private Drivervehicle(Builder builder){
+        this.id = builder.id;
+        this.driver = builder.driver;
+        this.vehicle = builder.vehicle;
+    }
+
+    public static class Builder{
+        private DrivervehicleId id;
+        private Driver driver;
+        private Vehicle vehicle;
+
+        public Builder setId(DrivervehicleId id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder setDriver(Driver driver) {
+            this.driver = driver;
+            return this;
+        }
+
+        public Builder setVehicle(Vehicle vehicle) {
+            this.vehicle = vehicle;
+            return this;
+        }
+
+        public Drivervehicle build(){
+            return new Drivervehicle(this);
+        }
+    }
 }
