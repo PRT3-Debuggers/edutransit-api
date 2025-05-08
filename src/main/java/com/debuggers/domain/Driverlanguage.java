@@ -16,30 +16,52 @@ public class Driverlanguage {
     @MapsId("languageId")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "language_id", nullable = false)
-    private com.debuggers.domain.Language language;
+    private Language language;
 
     public DriverlanguageId getId() {
         return id;
-    }
-
-    public void setId(DriverlanguageId id) {
-        this.id = id;
     }
 
     public Driver getDriver() {
         return driver;
     }
 
-    public void setDriver(Driver driver) {
-        this.driver = driver;
-    }
-
-    public com.debuggers.domain.Language getLanguage() {
+    public Language getLanguage() {
         return language;
     }
 
-    public void setLanguage(com.debuggers.domain.Language language) {
-        this.language = language;
+    public Driverlanguage() {
     }
 
+    private Driverlanguage(Builder builder){
+        this.driver = builder.driver;
+        this.id = builder.id;
+        this.language = builder.language;
+    }
+
+    public static class Builder{
+        private DriverlanguageId id;
+        private Driver driver;
+        private Language language;
+
+        public Builder setId(DriverlanguageId id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder setDriver(Driver driver){
+            this.driver = driver;
+            return this;
+        }
+
+        public Builder setLanguage(Language language){
+            this.language = language;
+            return this;
+        }
+
+        public Driverlanguage build(){
+            return new Driverlanguage(this);
+        }
+    }
 }
+

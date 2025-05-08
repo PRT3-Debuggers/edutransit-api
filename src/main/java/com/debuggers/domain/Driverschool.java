@@ -16,30 +16,53 @@ public class Driverschool {
     @MapsId("schoolId")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "school_id", nullable = false)
-    private com.debuggers.domain.School school;
+    private School school;
 
     public DriverschoolId getId() {
         return id;
-    }
-
-    public void setId(DriverschoolId id) {
-        this.id = id;
     }
 
     public Driver getDriver() {
         return driver;
     }
 
-    public void setDriver(Driver driver) {
-        this.driver = driver;
-    }
-
-    public com.debuggers.domain.School getSchool() {
+    public School getSchool() {
         return school;
     }
 
-    public void setSchool(com.debuggers.domain.School school) {
-        this.school = school;
+    public Driverschool(){
+
+    }
+
+    private Driverschool(Builder builder){
+        this.id = builder.id;
+        this.driver = builder.driver;
+        this.school = builder.school;
+    }
+
+    public static class Builder {
+        private DriverschoolId id;
+        private Driver driver;
+        private School school;
+
+        public Builder setDriverschoolId(DriverschoolId id){
+            this.id = id;
+            return this;
+        }
+
+        public Builder setDriver(Driver driver){
+            this.driver = driver;
+            return this;
+        }
+
+        public Builder setSchool(School school){
+            this.school = school;
+            return this;
+        }
+
+        public Driverschool build(){
+            return new Driverschool(this);
+        }
     }
 
 }

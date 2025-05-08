@@ -22,24 +22,46 @@ public class Vehicle {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getVehicleModel() {
         return vehicleModel;
-    }
-
-    public void setVehicleModel(String vehicleModel) {
-        this.vehicleModel = vehicleModel;
     }
 
     public String getVehicleType() {
         return vehicleType;
     }
 
-    public void setVehicleType(String vehicleType) {
-        this.vehicleType = vehicleType;
+    public Vehicle(){
+
     }
 
+    private Vehicle(Builder builder){
+        this.id = builder.id;
+        this.vehicleModel = builder.vehicleModel;
+        this.vehicleType = builder.vehicleType;
+    }
+
+    public static class Builder {
+        private Long id;
+        private String vehicleModel;
+        private String vehicleType;
+
+        public Builder setId(Long id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder setVehicleModel(String vehicleModel) {
+            this.vehicleModel = vehicleModel;
+            return this;
+        }
+
+        public Builder setVehicleType(String vehicleType) {
+            this.vehicleType = vehicleType;
+            return this;
+        }
+
+        public Vehicle build(){
+            return new Vehicle(this);
+        }
+    }
 }
