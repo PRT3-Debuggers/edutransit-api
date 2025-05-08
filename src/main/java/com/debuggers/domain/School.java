@@ -18,28 +18,65 @@ public class School {
     @Column(name = "school_address")
     private String schoolAddress;
 
+    public School() {
+    }
+
+    private School(Builder builder) {
+        this.id = builder.id;
+        this.schoolName = builder.schoolName;
+        this.schoolAddress = builder.schoolAddress;
+
+    }
+
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+
 
     public String getSchoolName() {
         return schoolName;
     }
 
-    public void setSchoolName(String schoolName) {
-        this.schoolName = schoolName;
-    }
+
 
     public String getSchoolAddress() {
         return schoolAddress;
     }
 
-    public void setSchoolAddress(String schoolAddress) {
-        this.schoolAddress = schoolAddress;
-    }
 
+
+
+
+    public static class Builder{
+        private Long id;
+        private String schoolName;
+        private String schoolAddress;
+
+        public Builder setId(Long id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder setSchoolName(String schoolName) {
+            this.schoolName = schoolName;
+            return this;
+        }
+
+        public Builder setSchoolAddress(String schoolAddress) {
+            this.schoolAddress = schoolAddress;
+            return this;
+        }
+
+        public Builder copy(School school){
+            this.id = school.getId();
+            this.schoolName = school.getSchoolName();
+            this.schoolAddress = school.getSchoolAddress();
+            return this;
+        }
+
+        public School build(){
+            return new School(this);
+        }
+    }
 }
