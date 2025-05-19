@@ -13,6 +13,11 @@ public class Parent {
     @JoinColumn(name = "user_id", nullable = false)
     private com.debuggers.domain.User user;
 
+    public Parent(Builder builder) {
+        this.id = builder.id;
+        this.user = builder.user;
+    }
+
     public Long getId() {
         return id;
     }
@@ -27,6 +32,32 @@ public class Parent {
 
     public void setUser(com.debuggers.domain.User user) {
         this.user = user;
+    }
+
+
+    public static class Builder{
+        private Long id;
+        private com.debuggers.domain.User user;
+
+        public Builder setId(Long id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder setUser(User user) {
+            this.user = user;
+            return this;
+        }
+
+        public Builder copy(Parent parent){
+            this.id = parent.getId();
+            this.user = parent.getUser();
+            return this;
+        }
+
+        public Parent build(){
+            return new Parent(this);
+        }
     }
 
 }
