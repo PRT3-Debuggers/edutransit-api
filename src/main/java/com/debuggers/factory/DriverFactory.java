@@ -13,7 +13,7 @@ public class DriverFactory {
     ) {
 
         if (
-                id.equals(null) || user.equals(null) || criminalRecord.equals(null) || maxPassengers.equals(null) || availableSeats.equals(null)
+                id == null || user == null || criminalRecord.equals(null) || maxPassengers.equals(null) || availableSeats.equals(null)
         ) {
             return null;
         }
