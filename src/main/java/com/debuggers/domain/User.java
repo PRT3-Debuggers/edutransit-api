@@ -1,5 +1,12 @@
 package com.debuggers.domain;
+/* User.java
 
+     User POJO class
+
+     Author: Bonga Velem (220052379)
+
+     */
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -28,6 +35,7 @@ public class User implements Serializable {
 
     // ✅ FIXED RELATIONSHIP (One User → Many Parents)
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private Collection<Parent> parents;
 
     // Default constructor
@@ -71,6 +79,22 @@ public class User implements Serializable {
     // Setters
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setParents(Collection<Parent> parents) {

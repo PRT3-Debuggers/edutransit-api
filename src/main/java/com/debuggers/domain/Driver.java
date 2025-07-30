@@ -1,5 +1,9 @@
 package com.debuggers.domain;
+/*
 
+     Author: Bonga Velem (220052379)
+
+    */
 import jakarta.persistence.*;
 
 import java.io.Serializable;

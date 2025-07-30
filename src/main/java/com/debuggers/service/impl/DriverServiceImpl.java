@@ -8,7 +8,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+/*
 
+     Author: Bonga Velem (220052379)
+
+    */
 @Service
 public class DriverServiceImpl implements DriverService {
 
@@ -56,38 +60,6 @@ public class DriverServiceImpl implements DriverService {
     public List<Driver> findAll() {
         return driverRepo.findAll();
     }
-//
-//    @Override
-//    public Driver create(Driver driver) {
-//        return driverRepo.save(driver);
-//    }
-//
-//    @Override
-//    public Driver read(String id) {
-//        return null;
-//    }
-//
-//
-//    @Override
-//    public Driver update(Driver driver) {
-//        if (driverRepo.existsById(driver.getId())) {
-//            return driverRepo.save(driver);
-//        }
-//        return null;
-//    }
-//
-//    @Override
-//    public void delete(String id) {
-//        driverRepo.deleteById(Long.valueOf(id));
-//
-//    }
-//
-//
-//
-//
-//
-//    @Override
-//    public List<Driver> findAll() {
-//        return driverRepo.findAll();
-//    }
+
+
 }

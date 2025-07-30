@@ -1,5 +1,9 @@
 package com.debuggers.service.impl;
+/*
 
+     Author: Bonga Velem (220052379)
+
+    */
 import com.debuggers.domain.Parent;
 import com.debuggers.repository.ParentRepository;
 import com.debuggers.service.ParentService;
@@ -27,7 +31,7 @@ public class ParentServiceImpl implements ParentService {
 
     @Override
     public Optional<Parent> read(Long id) {
-        return parentRepo.findById(String.valueOf(id));
+        return parentRepo.findById(id);
     }
 
     @Override
@@ -37,13 +41,17 @@ public class ParentServiceImpl implements ParentService {
 
     @Override
     public void delete(Long id) {
-         parentRepo.deleteById(String.valueOf(id));
+         parentRepo.deleteById(id);
     }
 
-    @Override
     public Set<Parent> getAllParent() {
-        return parentRepo.getAllParent();
+        return Set.copyOf(parentRepo.findAll());
     }
+
+//    @Override
+//    public Set<Parent> getAllParent() {
+//        return parentRepo.getAllParent();
+//    }
 
 
 

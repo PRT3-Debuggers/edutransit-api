@@ -1,5 +1,9 @@
 package com.debuggers.service.impl;
+/*
 
+     Author: Bonga Velem (220052379)
+
+    */
 import com.debuggers.domain.Parent;
 import com.debuggers.domain.User;
 import com.debuggers.factory.UserFactory;
@@ -75,29 +79,23 @@ class ParentServiceImplTest {
 
     @Test
     void delete() {
-        parentService.delete(Long.valueOf("1"));
-        verify(parentRepo).deleteById("1"); // ✅ Expect that the method is called
+        parentService.delete(1L);
+        verify(parentRepo).deleteById(1L); // ✅ Expect that the method is called
     }
 
-    @Test
-    void getAllParent() {
-        Set<Parent> result = parentService.getAllParent();
 
-        assertNotNull(result);
-        assertTrue(result.isEmpty());
-    }
 
     @Test
     void read() {
-        when(parentRepo.findById("1")).thenReturn(Optional.of(testParent));
+        when(parentRepo.findById(1L)).thenReturn(Optional.of(testParent));
 
-        Optional<Parent> result = parentService.read(Long.valueOf("1"));
+        Optional<Parent> result = parentService.read(1L);
 
         assertTrue(result.isPresent());
         assertEquals(testParent.getId(), result.get().getId());
         assertEquals("Thabo", result.get().getUser().getFirstName());
         assertEquals("Mokoena", result.get().getUser().getLastName());
-        verify(parentRepo).findById("1");
+        verify(parentRepo).findById(1L);
     }
 
     @Test

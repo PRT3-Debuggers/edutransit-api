@@ -1,25 +1,32 @@
 package com.debuggers.domain;
+/*
 
+     Author: Bonga Velem (220052379)
+
+    */
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
 
 @Entity
 @Table(name = "parent", schema = "prt3debuggers")
-public class Parent  implements Serializable {
+public class Parent implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "parent_id", nullable = false)
     private Long id;
 
     /**
      *
      */
-//    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-//    @JoinColumn(name = "user_id", nullable = false)
-//    private User user;
+    // @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    // @JoinColumn(name = "user_id", nullable = false)
+    // private User user;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
+    @JsonBackReference
     private User user;
 
     public Parent() {
@@ -40,6 +47,10 @@ public class Parent  implements Serializable {
 
     public User getUser() {
         return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

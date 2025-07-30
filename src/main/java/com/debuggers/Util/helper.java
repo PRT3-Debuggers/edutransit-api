@@ -1,5 +1,9 @@
 package com.debuggers.Util;
+/*
 
+     Author: Bonga Velem (220052379)
+
+    */
 import org.apache.commons.validator.routines.EmailValidator;
 
 import java.util.UUID;
