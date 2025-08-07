@@ -36,7 +36,6 @@ class ParentServiceImplTest {
         parentService = new ParentServiceImpl(parentRepo);
 
         User testUser = new User.Builder()
-                .setId(UserFactory.createUserId())
                 .setFirstName("Thabo")
                 .setLastName("Mokoena")
                 .setEmailAddress("thabo@example.com")
@@ -44,7 +43,6 @@ class ParentServiceImplTest {
                 .build();
 
         testParent = new Parent.Builder()
-                .setId(UserFactory.createUserId())
                 .setUser(testUser)
                 .build();
     }
@@ -80,7 +78,7 @@ class ParentServiceImplTest {
     @Test
     void delete() {
         parentService.delete(1L);
-        verify(parentRepo).deleteById(1L); // ✅ Expect that the method is called
+        verify(parentRepo).deleteById(1L);
     }
 
 

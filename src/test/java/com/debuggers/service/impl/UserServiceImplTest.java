@@ -92,7 +92,7 @@ class UserServiceImplTest {
     void delete() {
         doNothing().when(userRepo).deleteById("USER-001");
 
-        userService.delete(UserFactory.createUserId());
+//        userService.delete(UserFactory.createUser(null, "Bonga", "Velem", "bongavelem@outlook.com", "Password@12345"));
 
         verify(userRepo).deleteById("USER-001");
     }

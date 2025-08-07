@@ -1,7 +1,7 @@
 package com.debuggers.domain;
 /* User.java
 
-     User POJO class
+     User Entity/Domain class
 
      Author: Bonga Velem (220052379)
 
@@ -33,7 +33,7 @@ public class User implements Serializable {
     @Column(name = "password")
     private String password;
 
-    // ✅ FIXED RELATIONSHIP (One User → Many Parents)
+    // FIXED RELATIONSHIP (One User → Many Parents)
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private Collection<Parent> parents;

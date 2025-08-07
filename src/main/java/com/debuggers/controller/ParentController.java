@@ -1,4 +1,11 @@
 package com.debuggers.controller;
+/* Parent.java
+
+     Parent Controller class
+
+     Author: Bonga Velem (220052379)
+
+     */
 
 import com.debuggers.domain.Parent;
 import com.debuggers.domain.User;

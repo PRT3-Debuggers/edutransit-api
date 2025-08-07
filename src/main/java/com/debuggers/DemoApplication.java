@@ -23,7 +23,7 @@ public class DemoApplication implements CommandLineRunner {
 
 		// Create a user [Works!]
 		User driverGazly = UserFactory.createUser(
-				UserFactory.createUserId(),
+				null,
 				"Pierre",
 				"Gazly",
 				"gazly@gmail.com",
@@ -49,7 +49,7 @@ public class DemoApplication implements CommandLineRunner {
 		System.out.println("User created: " + driverGazly);
 
 		// Create a Parent using ParentFactory
-		Parent parent = ParentFactory.createUser(UserFactory.createUserId(), driverGazly);
+		Parent parent = ParentFactory.createUser(null, driverGazly);
 
 		System.out.println("Parent created: " + parent);
 

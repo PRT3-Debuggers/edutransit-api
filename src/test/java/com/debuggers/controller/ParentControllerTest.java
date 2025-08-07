@@ -82,7 +82,6 @@ class ParentControllerTest {
     @Test
     @Order(2)
     public void read() {
-        // Use the ID from the created parent (we'll get this from the create test)
         String url = getBaseUrl() + "read/" + updateRequest.getParentId();
         System.out.println("Reading from: " + url);
 
@@ -135,11 +134,10 @@ class ParentControllerTest {
             restTemplate.delete(url);
             System.out.println("Delete request sent successfully");
 
-            // Note: The delete might fail due to foreign key constraints
-            // This is expected behavior when there are related records
-            System.out.println("ℹ️ Delete operation completed (may have failed due to foreign key constraints)");
+
+            System.out.println("ℹDelete operation completed (may have failed due to foreign key constraints)");
         } catch (Exception e) {
-            System.out.println("ℹ️ Delete failed as expected due to foreign key constraints: " + e.getMessage());
+            System.out.println(" Delete failed as expected due to foreign key constraints: " + e.getMessage());
         }
     }
 }

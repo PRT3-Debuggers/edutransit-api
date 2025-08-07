@@ -1,5 +1,9 @@
 package com.debuggers.dto;
+/*
 
+     Author: Bonga Velem (220052379)
+
+    */
 public class CreateParentRequest {
     private String firstName;
     private String lastName;

@@ -1,9 +1,11 @@
 package com.debuggers.domain;
-/*
+/* Driver.java
+
+     Driver Entity/Domain class
 
      Author: Bonga Velem (220052379)
 
-    */
+     */
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -61,25 +63,6 @@ public class Driver implements Serializable {
         return availableSeats;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public void setCriminalRecord(String criminalRecord) {
-        this.criminalRecord = criminalRecord;
-    }
-
-    public void setMaxPassengers(String maxPassengers) {
-        this.maxPassengers = maxPassengers;
-    }
-
-    public void setAvailableSeats(String availableSeats) {
-        this.availableSeats = availableSeats;
-    }
 
     @Override
     public String toString() {

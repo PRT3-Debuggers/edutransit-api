@@ -1,4 +1,11 @@
 package com.debuggers.controller;
+/* User.java
+
+     User Controller class
+
+     Author: Bonga Velem (220052379)
+
+     */
 
 import com.debuggers.domain.User;
 import com.debuggers.factory.UserFactory;
@@ -10,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
+
 
 @RestController
 @RequestMapping("/api/users")
@@ -24,7 +32,6 @@ public class UserController {
     @GetMapping("/sample")
     public User retrieveSampleUser() {
         User user = new User.Builder()
-                .setId(UserFactory.createUserId())
                 .setFirstName("Devin")
                 .setLastName("Booker")
                 .setEmailAddress("booker@gmail.com")
@@ -50,17 +57,17 @@ public class UserController {
                  .orElse(ResponseEntity.notFound().build());
          return userResponseEntity;
      }
-    //
+
      @PostMapping("/update")
      public ResponseEntity<User> update(@RequestBody User user) {
      return ResponseEntity.ok(userService.update(user));
      }
-    //
+
      @GetMapping("/all")
      public ResponseEntity<Set<User>> getAll() {
      return ResponseEntity.ok(userService.getAllUser());
      }
-    //
+
      @DeleteMapping("/delete/{id}")
      public ResponseEntity<Void> delete(@PathVariable Long id) {
      userService.delete(id);
@@ -68,21 +75,3 @@ public class UserController {
      }
 }
 
-// @PostMapping("/create")
-// public ResponseEntity<User> create(@RequestBody User user) {
-// User newUser = userService.create(user);
-// System.out.println("Print new data: " + newUser);
-// return ResponseEntity.ok(newUser);
-// }
-
-// @PostMapping("/create")
-// public ResponseEntity<User> create(@ResponseBody User user){
-// User newUser = userService.create(user);
-// return ResponseEntity.ok(newUser);
-// }
-
-// @PostMapping("/create")
-// public ResponseEntity<User> create(@RequestBody User user) {
-// return ResponseEntity.ok(userService.create(user));
-// }
-//

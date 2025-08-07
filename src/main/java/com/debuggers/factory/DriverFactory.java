@@ -9,10 +9,7 @@ import com.debuggers.domain.Driver;
 
 public class DriverFactory {
 
-    // Generate an internal driver ID if needed
-    public static Long createUserId() {
-        return helper.generateId(); // ✅ Create a new method that returns a random long
-    }
+
 
     public static Driver createDriver(
             String criminalRecord,

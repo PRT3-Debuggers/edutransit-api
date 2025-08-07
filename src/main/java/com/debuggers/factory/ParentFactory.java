@@ -10,10 +10,7 @@ import com.debuggers.domain.User;
 
 public class ParentFactory {
 
-    // Used if you want to generate an ID internally
-    public static Long createUserId() {
-        return helper.generateId(); // ✅ Create a new method that returns a random long
-    }
+
 
 
     public static Parent createUser(
@@ -27,7 +24,6 @@ public class ParentFactory {
         }
 
         return new Parent.Builder()
-                .setId(createUserId())
                 .setUser(user)
                 .build();
     }

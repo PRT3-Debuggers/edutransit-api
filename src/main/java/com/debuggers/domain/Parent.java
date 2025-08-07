@@ -1,9 +1,13 @@
 package com.debuggers.domain;
-/*
+/* Parent.java
 
-     Author: Bonga Velem (220052379)
+     Parent Entity/Domain class
 
-    */
+     Author: Bonga Velem
+
+     Student Number: (220052379)
+
+     */
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
