@@ -1,41 +1,36 @@
 package com.debuggers.factory;
+/*
 
+     Author: Bonga Velem (220052379)
+
+    */
 import com.debuggers.domain.Driver;
-import com.debuggers.domain.User;
-import com.debuggers.factory.DriverFactory;
-import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
-import org.springframework.core.annotation.Order;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class DriverFactoryTest {
-    private static User user1 = UserFactory.createUser(Long.valueOf(1),"FName","LName","mail@mail.com","password");
-    private static User user2 = UserFactory.createUser(Long.valueOf(2),"FName","LName","","password");
 
-    private static Driver driver1 = DriverFactory.createDriver(Long.valueOf(1),user1,"null","13","3");
-    private static Driver driver2 = DriverFactory.createDriver(Long.valueOf(2),user2,"null","17","7");
+    private Driver driverLerclerc;
+    private Driver driverFail;
 
-    @Test
-    @Order(1)
-    void testCreateDriver() {
-        assertNotNull(driver1);
-        System.out.println(driver1.toString());
+    @BeforeEach
+    void setUp() {
+        // Initialize before each test
+        driverLerclerc = DriverFactory.createDriver("none", "5", "3");
+        driverFail = DriverFactory.createDriver("first offence", " ", "3");
     }
 
     @Test
-    @Order(2)
-    void testCreateDriverWithAllAttributes(){
-        assertNotNull(driver2);
-        System.out.println(driver2.toString());
+    void createDriverId() {
+        assertNotNull(driverLerclerc);
+        System.out.println(driverLerclerc.toString() + " — Test is successful, keep going!");
     }
 
     @Test
-    @Order(3)
-    void testCreateDriverThatFails(){
-        assertNotNull(driver2);
-        System.out.println(driver2.toString());
+    void createDriver() {
+        assertNull(driverFail);
+        System.out.println("Driver is null — there is an error as expected!");
     }
 }
