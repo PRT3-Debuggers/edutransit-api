@@ -47,4 +47,8 @@ public class UserServiceImpl implements UserService {
     public void delete(Long id) {
         userRepo.deleteById(String.valueOf(id));
     }
+
+    public User findByEmailAndPassword(String email, String password) {
+        return userRepo.findByEmailAddressAndPassword(email, password);
+    }
 }
