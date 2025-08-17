@@ -13,4 +13,5 @@ import java.util.Set;
 @Repository
 public interface UserRepository extends JpaRepository<User, String> {
    // Set<User>getAllUser();
+    User findByEmailAddressAndPassword(String emailAddress, String password);
 }
