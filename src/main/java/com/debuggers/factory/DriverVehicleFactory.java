@@ -3,6 +3,7 @@ package com.debuggers.factory;
 import com.debuggers.domain.Driver;
 import com.debuggers.domain.DriverVehicle;
 import com.debuggers.domain.DrivervehicleId;
+import com.debuggers.domain.Vehicle;
 import com.debuggers.util.Helper;
 
 public class DriverVehicleFactory {

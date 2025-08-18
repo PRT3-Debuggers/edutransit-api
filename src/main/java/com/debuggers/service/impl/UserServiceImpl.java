@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
+
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
@@ -21,7 +22,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepo;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepo){
+    public UserServiceImpl(UserRepository userRepo) {
         this.userRepo = userRepo;
     }
 
@@ -33,7 +34,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public Optional<User> read(Long id) {
-        return userRepo.findById(String.valueOf(id));
+        return userRepo.findById(id);
     }
 
     @Override
@@ -51,7 +52,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void delete(Long id) {
-        userRepo.deleteById(String.valueOf(id));
+        userRepo.deleteById(id);
     }
 
     public User findByEmailAndPassword(String email, String password) {

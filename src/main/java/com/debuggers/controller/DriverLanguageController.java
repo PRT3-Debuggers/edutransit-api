@@ -6,7 +6,7 @@ import com.debuggers.domain.DriverlanguageId;
 import com.debuggers.service.impl.DriverLanguageServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/driverlanguage")
@@ -26,7 +26,7 @@ public class DriverLanguageController {
 
     //GET MAPPING: PASSING THE PRIMARY KEY + RETURNING THE RESULT
     @GetMapping("/read{driverlanguageId}")
-    public DriverLanguage read(@PathVariable DriverlanguageId driverlanguageId){
+    public Optional<DriverLanguage> read(@PathVariable DriverlanguageId driverlanguageId){
         return this.service.read(driverlanguageId);
     }
 
@@ -42,10 +42,10 @@ public class DriverLanguageController {
          this.service.delete(driverlanguageId);
     }
 
-    @GetMapping("/getAll")
-    public List<DriverLanguage> getAll(){
-        return this.service.getAllDriverLanguages();
-    }
+//    @GetMapping("/getAll")
+//    public List<DriverLanguage> getAll(){
+//        return this.service.getAllDriverLanguages();
+//    }
 }
 
 

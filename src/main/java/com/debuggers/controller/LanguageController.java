@@ -1,16 +1,16 @@
 package com.debuggers.controller;
 
 import com.debuggers.domain.Language;
-import com.debuggers.service.impl.LanguageServiceImpl;
+import com.debuggers.service.LanguageService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping
 public class LanguageController {
 
-    private LanguageServiceImpl service;
+    private final LanguageService service;
 
-    private LanguageController(LanguageServiceImpl service){
+    public LanguageController(LanguageService service){
         this.service = service;
     }
 

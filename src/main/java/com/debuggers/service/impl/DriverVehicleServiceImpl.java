@@ -12,14 +12,16 @@ import java.util.List;
 @Service
 public class DriverVehicleServiceImpl implements DriverVehicleService {
 
-    @Autowired
-    private static DriverVehicleService service;
+    private final DriverVehicleRepository repository;
 
-    private DriverVehicleRepository repository;
+    @Autowired
+    public DriverVehicleServiceImpl(DriverVehicleRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public List<DriverVehicle> getAllDriverVehicles() {
-        return this.repository.getAllDriverVehicles();
+        return this.repository.findAll();
     }
 
     @Override

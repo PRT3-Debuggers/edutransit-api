@@ -11,13 +11,11 @@ import java.util.List;
 @Service
 public class LanguageServiceImpl implements LanguageService {
 
-    private LanguageServiceImpl service;
-
-    private LanguageRepository languageRepository;
+    private final LanguageRepository languageRepository;
 
     @Autowired
-    public LanguageServiceImpl(LanguageServiceImpl service){
-        this.service = service;
+    public LanguageServiceImpl(LanguageRepository languageRepository){
+        this.languageRepository = languageRepository;
     }
 
     @Override

@@ -16,12 +16,23 @@ public class DrivervehicleId implements Serializable {
     @Column(name = "driver_id", nullable = false)
     private Long driverId;
 
+    @Column(name = "vehicle_id", nullable = false)
+    private Long vehicleId;
+
     public Long getDriverId() {
         return driverId;
     }
 
     public void setDriverId(Long driverId) {
         this.driverId = driverId;
+    }
+
+    public Long getVehicleId() {
+        return vehicleId;
+    }
+
+    public void setVehicleId(Long vehicleId) {
+        this.vehicleId = vehicleId;
     }
 
     @Override
@@ -34,11 +45,12 @@ public class DrivervehicleId implements Serializable {
 
         DrivervehicleId entity = (DrivervehicleId) o;
 
-        return Objects.equals(driverId,entity.driverId);
+        return Objects.equals(driverId,entity.driverId) && 
+               Objects.equals(vehicleId, entity.vehicleId);
     }
 
     @Override
     public int hashCode(){
-        return Objects.hash(driverId);
+        return Objects.hash(driverId, vehicleId);
     }
 }
