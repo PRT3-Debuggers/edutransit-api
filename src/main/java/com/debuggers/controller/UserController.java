@@ -8,6 +8,7 @@ package com.debuggers.controller;
      */
 
 import com.debuggers.domain.User;
+import com.debuggers.dto.LoginRequest;
 import com.debuggers.factory.UserFactory;
 import com.debuggers.service.impl.UserServiceImpl;
 import org.slf4j.Logger;
@@ -21,6 +22,7 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/api/users")
+@CrossOrigin(origins = "http://localhost:5173")
 public class UserController {
 
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
@@ -48,6 +50,18 @@ public class UserController {
         System.out.println(user);
         return userService.create(user);
 
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<User> login(@RequestBody LoginRequest loginDetails) {
+        User user = userService.findByEmailAndPassword(
+                loginDetails.getEmailAddress(),
+                loginDetails.getPassword()
+        );
+        if (user != null) {
+            return ResponseEntity.ok(user);
+        }
+        return ResponseEntity.status(404).build(); // not found?
     }
 
      @GetMapping("/read/{id}")
