@@ -3,7 +3,7 @@ package com.debuggers.controller;
 
 import com.debuggers.domain.DriverLanguage;
 import com.debuggers.domain.DriverlanguageId;
-import com.debuggers.service.impl.DriverLanguageImpl;
+import com.debuggers.service.impl.DriverLanguageServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,9 +12,9 @@ import java.util.List;
 @RequestMapping("/driverlanguage")
 public class DriverLanguageController {
 
-    private DriverLanguageImpl service;
+    private DriverLanguageServiceImpl service;
 
-    private DriverLanguageController(DriverLanguageImpl service){
+    private DriverLanguageController(DriverLanguageServiceImpl service){
         this.service = service;
     }
 

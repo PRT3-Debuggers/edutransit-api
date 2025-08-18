@@ -1,12 +1,13 @@
 package com.debuggers.factory;
 
+import com.debuggers.domain.Driver;
 import com.debuggers.domain.DriverVehicle;
 import com.debuggers.domain.DrivervehicleId;
 import com.debuggers.util.Helper;
 
 public class DriverVehicleFactory {
 
-    public static DriverVehicle createDriverVehicleFactory(
+    public static DriverVehicle createDriverVehicle(
             DrivervehicleId id, Vehicle vehicle, Driver driver
     ){
         if (

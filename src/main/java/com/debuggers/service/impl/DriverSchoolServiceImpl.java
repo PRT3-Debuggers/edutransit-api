@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class DriverSchoolImpl implements DriverSchoolService {
+public class DriverSchoolServiceImpl implements DriverSchoolService {
 
     @Autowired
     private static DriverSchoolService service;

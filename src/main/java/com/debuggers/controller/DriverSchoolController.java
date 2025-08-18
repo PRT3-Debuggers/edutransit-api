@@ -3,7 +3,7 @@ package com.debuggers.controller;
 
 import com.debuggers.domain.DriverSchool;
 import com.debuggers.domain.DriverschoolId;
-import com.debuggers.service.impl.DriverSchoolImpl;
+import com.debuggers.service.impl.DriverSchoolServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,9 +12,9 @@ import java.util.List;
 @RequestMapping("/driverschool")
 public class DriverSchoolController {
 
-    private DriverSchoolImpl service;
+    private DriverSchoolServiceImpl service;
 
-    public DriverSchoolController(DriverSchoolImpl service ){
+    public DriverSchoolController(DriverSchoolServiceImpl service ){
         this.service = service;
     }
 

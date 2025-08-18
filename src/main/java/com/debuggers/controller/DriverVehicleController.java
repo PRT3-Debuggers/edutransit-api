@@ -3,7 +3,7 @@ package com.debuggers.controller;
 
 import com.debuggers.domain.DriverVehicle;
 import com.debuggers.domain.DrivervehicleId;
-import com.debuggers.service.impl.DriverVehicleImpl;
+import com.debuggers.service.impl.DriverVehicleServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,9 +12,9 @@ import java.util.List;
 @RequestMapping("/drivervehicle")
 public class DriverVehicleController {
 
-    private DriverVehicleImpl service;
+    private DriverVehicleServiceImpl service;
 
-    private DriverVehicleController(DriverVehicleImpl service){
+    private DriverVehicleController(DriverVehicleServiceImpl service){
         this.service = service;
     }
 

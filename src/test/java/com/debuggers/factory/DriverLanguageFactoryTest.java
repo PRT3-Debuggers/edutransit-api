@@ -15,11 +15,11 @@ class DriverLanguageFactoryTest {
     private static Language langTemp1 = new Language();
 
     private static User userTemp1 = UserFactory.createUser(120L,"FName","LName","mail@mail.com","password");
-    private static Driver driverTemp1 = DriverFactory.createDriver(130L,userTemp1,"null","20","2");
+    private static Driver driver1 = DriverFactory.createDriver("null","")
 
-    private static Driverlanguage driverlanguage1 = DriverLanguageFactory.createDriverLanguage(driverLanguageId1,driverTemp1,langTemp1);
-    private static Driverlanguage driverlanguage2 = DriverLanguageFactory.createDriverLanguage(new DriverlanguageId(),new Driver(),new Language());
-    private static Driverlanguage driverlanguage3 = DriverLanguageFactory.createDriverLanguage(new DriverlanguageId(),new Driver(),new Language());
+    private static DriverLanguage driverlanguage1 = DriverLanguageFactory.createDriverLanguage(driverLanguageId1,driverTemp1,langTemp1);
+    private static DriverLanguage driverlanguage2 = DriverLanguageFactory.createDriverLanguage(new DriverlanguageId(),new Driver(),new Language());
+    private static DriverLanguage driverlanguage3 = DriverLanguageFactory.createDriverLanguage(new DriverlanguageId(),new Driver(),new Language());
 
     @Test
     @Order(3)

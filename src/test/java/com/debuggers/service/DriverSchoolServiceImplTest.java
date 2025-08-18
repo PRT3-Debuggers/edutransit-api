@@ -2,7 +2,7 @@ package com.debuggers.service;
 
 import com.debuggers.domain.DriverSchool;
 import com.debuggers.factory.DriverSchoolFactory;
-import com.debuggers.service.impl.DriverSchoolImpl;
+import com.debuggers.service.impl.DriverSchoolServiceImpl;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -14,10 +14,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.class)
-class DriverSchoolImplTest {
+class DriverSchoolServiceImplTest {
 
     @Autowired
-    private static DriverSchoolImpl service;
+    private static DriverSchoolServiceImpl service;
 
     DriverschoolId driverschoolId1;
 
