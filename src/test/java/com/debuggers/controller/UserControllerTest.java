@@ -10,11 +10,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
-/*
 
-     Author: Bonga Velem (220052379)
-
-    */
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -111,7 +107,8 @@ class UserControllerTest {
             restTemplate.delete(url);
             System.out.println("Delete request sent successfully");
 
-
+            // Note: The delete might fail due to foreign key constraints
+            // This is expected behavior when there are related records
             System.out.println("Delete operation completed (may have failed due to foreign key constraints)");
         } catch (Exception e) {
             System.out.println("Delete failed as expected due to foreign key constraints: " + e.getMessage());

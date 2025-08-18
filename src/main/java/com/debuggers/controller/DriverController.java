@@ -1,13 +1,5 @@
 package com.debuggers.controller;
 
-
-/* Driver.java
-
-     Driver Controller class
-
-     Author: Bonga Velem (220052379)
-
-     */
 import com.debuggers.domain.Driver;
 import com.debuggers.factory.DriverFactory;
 import com.debuggers.service.impl.DriverServiceImpl;
