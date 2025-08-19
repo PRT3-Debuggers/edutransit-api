@@ -37,6 +37,9 @@ public class SchoolServiceImpl implements SchoolService {
         return schoolRepository.findById(id).orElse(null);
     }
 
+
+
+    @Override
     public List<School> getAllSchools() {
         return schoolRepository.findAll();
     }

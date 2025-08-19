@@ -53,14 +53,14 @@ class UserControllerTest {
     @Order(2)
     public void read() {
         String url = getBaseUrl() + "read/" + user.getId();
-        System.out.println("📥 Reading from: " + url);
+        System.out.println(" Reading from: " + url);
 
         ResponseEntity<User> response = restTemplate.getForEntity(url, User.class);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertNotNull(response.getBody());
         assertEquals("Devin", response.getBody().getFirstName());
-        System.out.println("👀 Read User: " + response.getBody());
+        System.out.println(" Read User: " + response.getBody());
     }
 
     @Test

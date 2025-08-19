@@ -37,6 +37,8 @@ public class VehicleServiceImpl implements VehicleService {
         return vehicleRepository.findById(id).orElse(null);
     }
 
+
+    @Override
     public List<Vehicle> getAllVehicles() {
         return vehicleRepository.findAll();
     }
