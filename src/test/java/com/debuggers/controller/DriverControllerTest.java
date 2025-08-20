@@ -64,6 +64,7 @@ class DriverControllerTest {
     @Test
     @Order(2)
     public void read() {
+
         // Note: The DriverController.readDriver method uses @RequestBody instead of
         // @PathVariable
         // This is unusual for a GET request, but we'll test it as implemented

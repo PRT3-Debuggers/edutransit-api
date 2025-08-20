@@ -8,29 +8,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DriverLanguageServiceImpl implements DriverLanguageService {
 
     @Autowired
-    private static DriverLanguageService service;
-
     private DriverLanguageRepository repository;
-
-
-    @Override
-    public List<DriverLanguage> getAllDriverSchools() {
-        return this.repository.findAll();
-    }
 
     @Override
     public DriverLanguage create(DriverLanguage driverLanguage) {
         return this.repository.save(driverLanguage);
     }
 
-    @Override
-    public DriverLanguage read(DriverlanguageId id) {
-        return this.repository.findById(id).orElse(null);
+    public Optional<DriverLanguage> read(DriverlanguageId driverlanguageId){
+        return this.repository.findById(driverlanguageId);
     }
 
     @Override
@@ -41,5 +33,10 @@ public class DriverLanguageServiceImpl implements DriverLanguageService {
     @Override
     public void delete(DriverlanguageId id) {
         this.repository.deleteById(id);
+    }
+
+    @Override
+    public List<DriverLanguage> getAllDriverLanguages() {
+        return this.repository.findAll();
     }
 }

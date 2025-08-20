@@ -1,4 +1,5 @@
 package com.debuggers.service.impl;
+
 /*
 
      Author: Bonga Velem (220052379)
@@ -55,14 +56,14 @@ class UserServiceImplTest {
 
     @Test
     void read() {
-        when(userRepo.findById(String.valueOf(1L))).thenReturn(Optional.of(testUser));
+        when(userRepo.findById(1L)).thenReturn(Optional.of(testUser));
 
         Optional<User> result = userService.read(1L);
 
         assertTrue(result.isPresent());
         assertEquals("Bonga", result.get().getFirstName());
-        verify(userRepo).findById(String.valueOf(1L));
-        System.out.println("Read user: "+ result);
+        verify(userRepo).findById(1L);
+        System.out.println("Read user: " + result);
     }
 
     @Test
@@ -84,16 +85,16 @@ class UserServiceImplTest {
         User result = userService.update(testUser);
 
         assertNotNull(result);
-        //assertEquals("USER-001", result.getId());
+        // assertEquals("USER-001", result.getId());
         verify(userRepo).save(testUser);
     }
 
     @Test
     void delete() {
-        doNothing().when(userRepo).deleteById("USER-001");
+        doNothing().when(userRepo).deleteById(1L);
 
-        userService.delete(UserFactory.createUserId());
+        userService.delete(1L);
 
-        verify(userRepo).deleteById("USER-001");
+        verify(userRepo).deleteById(1L);
     }
 }

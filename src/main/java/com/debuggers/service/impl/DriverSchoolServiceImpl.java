@@ -12,11 +12,12 @@ import java.util.List;
 @Service
 public class DriverSchoolServiceImpl implements DriverSchoolService {
 
+    private final DriverSchoolRepository repository;
+
     @Autowired
-    private static DriverSchoolService service;
-
-    private DriverSchoolRepository repository;
-
+    public DriverSchoolServiceImpl(DriverSchoolRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public List<DriverSchool> getAllDriverSchools() {
@@ -42,6 +43,4 @@ public class DriverSchoolServiceImpl implements DriverSchoolService {
     public void delete(DriverschoolId id) {
         this.repository.deleteById(id);
     }
-
-
 }

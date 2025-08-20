@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ParentFactoryTest {
 
     private static User driverGazly = UserFactory.createUser(
-            UserFactory.createUserId(),
+            null,
             "Pierre",
             "Gazly",
             "gazly@gmail.com",
@@ -22,7 +22,7 @@ class ParentFactoryTest {
     );
 
     // Create a Parent using ParentFactory
-    private static Parent parent = ParentFactory.createUser(Long.valueOf(1), driverGazly);
+    private static Parent parent = ParentFactory.createUser(null, driverGazly);
 
 
 

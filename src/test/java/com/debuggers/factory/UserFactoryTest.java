@@ -11,10 +11,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class UserFactoryTest {
 
-    private static User userLewis = UserFactory.createUser(UserFactory.createUserId(),"Bonga", "Velem", "bongavelem@outlook.com","Bong@14");
+    private static User userLewis = UserFactory.createUser(null,"Bonga", "Velem", "bongavelem@outlook.com","Bong@14");
 
     private static User user2  = UserFactory.createUser(
-            UserFactory.createUserId(),
+            null,
             " ",
             "Velem",
             "not-an-email",
